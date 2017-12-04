@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="temp">
+    <p class="temp-name">{{tempName}}</p>      
+    <p class="temp-num">{{tempNum}}</p>   
+    <p class="temp-wind"><i class="iconfont icon-flag"></i>{{wind}} <i class="iconfont icon-drop"></i>湿度{{humidity}}</p>   
+  </view>
+</view>
