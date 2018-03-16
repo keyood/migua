@@ -1,8 +1,31 @@
 <!--index.wxml-->
 <view class="container">
   <view class="temp">
-    <p class="temp-name">{{tempName}}</p>      
-    <p class="temp-num">{{tempNum}}</p>   
-    <p class="temp-wind"><i class="iconfont icon-flag"></i>{{wind}} <i class="iconfont icon-drop"></i>湿度{{humidity}}</p>   
+    <p class="temp-name">{{weather.now.cond_txt}}</p>      
+    <p class="temp-num">{{weather.now.tmp}}</p>   
+    <p class="temp-wind">
+      <span class="wind">
+        <i class="iconfont icon-flag"></i>{{weather.now.wind_dir}} {{weather.now.wind_sc}}
+      </span>
+      <span class="hum">
+        <i class="iconfont icon-drop"></i>湿度 {{weather.now.hum}} %
+      </span>
+    </p>
+    <view class="table">
+        <view class="tr">
+            <view class="th">日期</view>
+            <view class="th">天气</view>
+            <view class="th">温度</view>
+            <view class="th">风力</view>
+            <view class="th">湿度</view>
+        </view>
+        <view class="tr" wx:for="{{weather.daily_forecast}}">
+            <view class="td">{{item.date}}</view>
+            <view class="td">{{item.cond_txt_d}}</view>
+            <view class="td">{{item.tmp_max}} {{item.tmp_min}}</view>
+            <view class="td">{{item.wind_dir}} {{item.wind_sc}}</view>
+            <view class="td">{{item.hum}} %</view>
+        </view>
+    </view>
   </view>
 </view>

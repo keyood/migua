@@ -12,22 +12,6 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
-    wx.request({
-      url: this.globalData.watherApi+"key=161dd76658394c44812eacaf5c79517a&location=330000",
-      data: {},
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function(res){
-        // success
-        console.log(res)
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    }),
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -51,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    watherApi: "https://free-api.heweather.com/s6/weather",
+    watherApi: "https://free-api.heweather.com/s6/weather?key=161dd76658394c44812eacaf5c79517a",
   }
 })

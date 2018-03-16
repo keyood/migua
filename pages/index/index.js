@@ -7,6 +7,7 @@ Page({
     tempName: "晴",
     tempNum: 8,
     wind: "东风 2 级",
+    weather: {},
     humidity: "52%",
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -17,6 +18,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.getWeatherData();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -43,6 +45,24 @@ Page({
         }
       })
     }
+  },
+  getWeatherData: function() {
+    let _this = this;
+    wx.request({
+      url: app.globalData.watherApi+"&location=北京",
+      method: 'GET',
+      success: function(res){
+        _this.setData({
+          weather: res.data.HeWeather6[0]
+        })          
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    });
   },
   getUserInfo: function(e) {
     console.log(e)
