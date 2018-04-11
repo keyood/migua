@@ -7,13 +7,13 @@
     <view class="table">
       <view class="tr">
         <view class="th">localName</view>
-        <view class="th">advertisData</view>
+        <view class="th">uuids</view>
         <view class="th">deviceId</view>
         <view class="th">连接</view>
       </view>
       <view class="tr" wx:for="{{servicesFound}}">
         <view class="td">{{item.localName}}</view>
-        <view class="td">{{item.advertisData}}</view>
+        <view class="td">{{item.advertisServiceUUIDs[0]}}</view>
         <view class="td">{{item.deviceId}}</view>
         <view class="td">
           <button bindtap="startConnectDevices">连接</button>
